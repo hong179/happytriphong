@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import sys
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'users',
+    'places',
 ]
 
 MIDDLEWARE = [
@@ -84,14 +92,13 @@ WSGI_APPLICATION = 'HappyTrip.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'happytrip',        #数据库名字
-        'USER': 'root',          #账号
-        'PASSWORD': '123456ch',      #密码
-        'HOST': '127.0.0.1',    #IP
-        'PORT': '3306',                   #端口
+        'NAME': 'happytrip',  # 数据库名字
+        'USER': 'root',  # 账号
+        'PASSWORD': '123456ch',  # 密码
+        'HOST': '127.0.0.1',  # IP
+        'PORT': '3306',  # 端口
     }
 }
-
 
 
 # Password validation
